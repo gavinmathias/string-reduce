@@ -1,0 +1,4 @@
+binaries
+vendor
+.vscode
+coverage.*
