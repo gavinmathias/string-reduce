@@ -5,11 +5,13 @@ package main
 
 import (
 	"flag"
+	"fmt"
+	"log"
+	"os"
+
 	"github.com/gavinmathias/string-reduce/build"
 	"github.com/gavinmathias/string-reduce/operate"
 	"github.com/gavinmathias/string-reduce/verify"
-	"log"
-	"os"
 )
 
 var inputString string
@@ -24,8 +26,8 @@ func init() {
 	flag.Parse()
 
 	if versionFlagPassed {
-		log.Printf("Build Version: %s", build.Version)
-		log.Printf("Build Time: %s", build.Time)
+		fmt.Printf("Build Version: %s\n", build.Version)
+		fmt.Printf("Build Time: %s\n", build.Time)
 		os.Exit(0)
 	}
 }
@@ -36,5 +38,5 @@ func main() {
 	}
 
 	outputString := operate.Reduce(inputString, consecutive)
-	log.Printf("Input string %s has been reduced to %s", inputString, outputString)
+	fmt.Printf("Input string %s has been reduced to %s\n", inputString, outputString)
 }
