@@ -30,11 +30,13 @@ build:
 
 run:
 	@figlet run
+	./${BINARY_FOLDER}/${BINARY_NAME} -help
+	@printf "${SEPARATOR}\n\n"
 	./${BINARY_FOLDER}/${BINARY_NAME} -version
 	@printf "${SEPARATOR}\n\n"
-	./${BINARY_FOLDER}/${BINARY_NAME} -consecutive 3 -input 112233444321
+	./${BINARY_FOLDER}/${BINARY_NAME} -digits-only -consecutive 3 -input 112233444321
 	@printf "${SEPARATOR}\n\n"
-	./${BINARY_FOLDER}/${BINARY_NAME} -consecutive 3 -input 11223344431
+	./${BINARY_FOLDER}/${BINARY_NAME} -digits-only -consecutive 3 -input 11223344431
 	@printf "${SEPARATOR}\n\n"
 
 test:

@@ -22,7 +22,7 @@ func init() {
 	flag.StringVar(&inputString, "input", "112233444321", "The string of digits to reduce")
 	flag.IntVar(&consecutive, "consecutive", 3, "The number of consecutive digits to remove from the input string of digits")
 	flag.BoolVar(&versionFlagPassed, "version", false, "Print the build version and time")
-	flag.BoolVar(&digitsOnly, "digits-only", false, "Only accept digits in the input string")
+	flag.BoolVar(&digitsOnly, "digits-only", false, "Only accept digits in the input string (default false)")
 	flag.Parse()
 
 	if versionFlagPassed {
