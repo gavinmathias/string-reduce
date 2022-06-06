@@ -6,12 +6,13 @@ BINARY_FOLDER=binaries
 MODULE_NAME=github.com/gavinmathias/string-reduce
 BUILD_VERSION=$(shell cat VERSION.txt)
 BUILD_TIME=$(shell date)
+ECHO=$(shell if which figlet > /dev/null 2>&1; then echo "figlet"; else echo "echo"; fi)
 SEPARATOR="+---------------------------------+"
 
 all: build test run
 
 build:
-	@figlet build
+	@${ECHO} build
 	@printf "Making the binary folder ${BINARY_FOLDER} if it doesn't exist\n"
 	mkdir -p ${BINARY_FOLDER}
 	@printf "${SEPARATOR}\n"
@@ -29,26 +30,28 @@ build:
 	@printf "${SEPARATOR}\n"
 
 run:
-	@figlet run
+	@${ECHO} run
 	./${BINARY_FOLDER}/${BINARY_NAME} -help
 	@printf "${SEPARATOR}\n\n"
 	./${BINARY_FOLDER}/${BINARY_NAME} -version
 	@printf "${SEPARATOR}\n\n"
-	./${BINARY_FOLDER}/${BINARY_NAME} -digits-only -consecutive 3 -input 112233444321
+	./${BINARY_FOLDER}/${BINARY_NAME} -digits-only -consecutive 3 -input '112233444321'
 	@printf "${SEPARATOR}\n\n"
-	./${BINARY_FOLDER}/${BINARY_NAME} -digits-only -consecutive 3 -input 11223344431
+	./${BINARY_FOLDER}/${BINARY_NAME} -digits-only -consecutive 3 -input '11223344431'
+	@printf "${SEPARATOR}\n\n"
+	./${BINARY_FOLDER}/${BINARY_NAME} -consecutive 4 -input '///++++----/aaaa9&!'
 	@printf "${SEPARATOR}\n\n"
 
 test:
-	@figlet test
+	@${ECHO} test
 	go test -v -cover -tags test -coverprofile=coverage.txt ./...
 
 coverage: test
-	@figlet coverage
+	@${ECHO} coverage
 	go tool cover -html=coverage.txt
 
 clean:
-	@figlet clean
+	@${ECHO} clean
 	go clean
 	@printf "${SEPARATOR}\n"
 	rm -f ${BINARY_FOLDER}/${BINARY_NAME}*

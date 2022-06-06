@@ -37,6 +37,7 @@ func (suite *VerifyTestSuite) SetupTest() {
 		{"112233444321", 3, true, 6},
 		{"", 3, false, -1},
 		{"92782782777777980202", 7, false, -1},
+		{"jkdkdjsnsksl;'';//;,...++++ksks9ks", 4, true, 23},
 		{"0", 1, true, 0},
 	}
 }

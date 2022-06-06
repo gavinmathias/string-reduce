@@ -37,7 +37,7 @@ func removeRuneAtIndex(input []rune, index int) []rune {
 	return append(input[:index], input[index+1:]...)
 }
 
-// removeConsecutiveRunesAtIndex starts at "index" of a rune array "input" and removes "consecutive" consecutive characters
+// removeConsecutiveRunesAtIndex starts at "index" of a rune array "input" and removes "consecutive" consecutive runes
 //
 // It returns the resulting rune array. If "input" is empty, it returns it unchanged
 func removeConsecutiveRunesAtIndex(input []rune, index int, consecutive int) []rune {

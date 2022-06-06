@@ -38,6 +38,7 @@ func (suite *OperateTestSuite) SetupTest() {
 		{[]rune("1124321"), []rune("112421"), 4},
 		{[]rune("8484383733"), []rune("848433733"), 5},
 		{[]rune("3839372022"), []rune("3839372022"), 50},
+		{[]rune("///++++----/aaaa9"), []rune("///+++----/aaaa9"), 4},
 	}
 
 	suite.RemoveConsecutiveRunesAtIndexTests = []RemoveConsecutiveRunesAtIndexTest{
@@ -46,6 +47,7 @@ func (suite *OperateTestSuite) SetupTest() {
 		{[]rune("1124321"), []rune("11241"), 4, 2},
 		{[]rune("8484383733"), []rune("848433"), 5, 4},
 		{[]rune("3839372022"), []rune("3839372022"), 50, 23},
+		{[]rune("///++++----/aaaa9"), []rune("///++++/aaaa9"), 7, 4},
 	}
 
 	suite.ReduceTests = []ReduceTest{
@@ -53,6 +55,7 @@ func (suite *OperateTestSuite) SetupTest() {
 		{"11223344431", "11221", 3},
 		{"83992827282902202020", "", 1},
 		{"982729202089999888", "9827292020", 4},
+		{"///++++----/aaaa9", "9", 4},
 	}
 }
 
